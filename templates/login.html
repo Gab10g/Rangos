@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='estilos.css') }}"> <!--importacion de archivo de estilos.css-->
+    <script>
+        function boton(){
+            usuario=document.getElementById("usuario").value;
+            password=document.getElementById("password").value;
+            if ((usuario=="") || (password=="")){
+                alert("Ingrese todos los valores");                
+            }
+            else{
+                document.getElementById("formLogin").submit();
+            }
+        }
+      
+    </script>
+    <style>
+        #login{
+            width: 500px;
+            position: absolute;
+            left: 30%;
+            top: 15%;
+            box-shadow:5px 5px 5px black;
+        }
+        body{
+            background-image: url('/static/fondo2.jpg');
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <form action="/menu" method="post" id="formLogin">
+            <img alt="Logo Escuela" height="147" src="{{ url_for('static', filename='logo.png') }}" width="380">
+            <p class="parrafo">Usuario  : <input type="text" name="usuario" id="usuario"></p>
+            <p class="parrafo">Contraseña : <input type="password" name="password" id="password"></p>
+            <p><input type="button" class="boton" value="Ingresar" onclick="boton()"></p>
+        </form>
+    </div>
+</body>
+</html>
